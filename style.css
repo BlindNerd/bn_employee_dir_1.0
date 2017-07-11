@@ -1,0 +1,99 @@
+/* Helper classes */
+
+* {
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: hidden;
+}
+
+
+/* General Classes */
+
+.wrapper {
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 3em;
+  margin-top: 1em;
+}
+
+.employee {
+  height: 15em;
+  width: 32em;
+  border: solid lightgrey .1em;
+  border-radius: 10px;
+  display: inline-block;
+  margin: 1.2em;
+  clear: both;
+}
+
+.image {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  border: solid black 1px;
+  margin: .7em;
+  box-shadow: 3px 3px 3px #888888;
+}
+
+.info {
+  display: block;
+  float: right;
+  list-style-type: none;
+  margin-top: 10%;
+  margin-right: 15%;
+}
+
+.name {
+  font-size: 1.5em;
+  font-style: bold;
+}
+
+.email,
+.city {
+  color: grey;
+}
+
+#employeeOverlay {
+  width: 34em;
+  height: 47em;
+  border: solid black 1px;
+  border-radius: 8px;
+  z-index: 1000;
+  background-color: white;
+  margin-left: 29%;
+  box-shadow: 10px 10px 5px #888888;
+  position: fixed;
+}
+
+.largeImage {
+  width: 18.75em;
+  height: 18.75em;
+  margin-left: 25%;
+  margin-top: 8%;
+  margin-bottom: 4%;
+  border-radius: 50%;
+  border: black solid 1px;
+  box-shadow: 5px 5px 5px #888888;
+}
+
+.bigInfo {
+  list-style-type: none;
+  text-align: center;
+  border-bottom: dotted grey 1px;
+}
+
+#moreInfo {
+  text-align: center;
+  list-style-type: none;
+}
+
+#phone,
+#address,
+#birthday {
+  color: grey;
+  margin: .7em;
+}
