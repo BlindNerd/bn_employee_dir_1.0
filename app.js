@@ -108,6 +108,7 @@ const left = document.getElementById('left');
         overlayBirthday.textContent = employees[i].birthday;
         $('.employee').hide();
         $('#button').hide();
+        $('#search').hide();
         $('body').toggleClass('clickOverlay');
         return index;
  });// end click on employee div
