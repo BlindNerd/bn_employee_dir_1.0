@@ -93,8 +93,6 @@ const left = document.getElementById('left');
 
 // create a loop to loop though all employees and keep the index's the same when clicked
 
-
-
   for (let i = 0; i < employees.length; i++) {
     employeeDiv[i].addEventListener('click', (e) => {
       index = i;
@@ -158,6 +156,7 @@ left.addEventListener('click', (e) => {
    $('body').toggleClass('clickOverlay');
    $('#button').show('slow');
    $('#search').hide();
+   $('#search').val('');
 }); // end of close click
 
 // create a search function that search the page
