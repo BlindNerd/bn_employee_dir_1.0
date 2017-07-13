@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <div id = "wrapper" class ''>
+  <div id = "wrapper">
 
     <div id = "employeeOverlay">
       <a href="#" id = "close"><h1 id = "exit">X</h1></a>
@@ -16,11 +16,11 @@
       <a href="#"><h1 id = "left"><</h1></a>
       <div class = "bigInfo">
         <P id = "bigName"></p>
+        <p id = "bigUser"></p>
         <p id = "bigEmail"></p>
-        <p id = "bigCity"></p>
+        <p id = "phone"></p>
       </div><br>
       <div id = "moreInfo">
-        <p id = "phone"></p>
         <p id = "address"></p>
         <p id = "birthday"></p>
       </div>
@@ -29,6 +29,7 @@
     <h3>AWESOME STARTUP EMPLOYEE DIRECTORY</h3>
 
     <form id ="searchDiv" action="search" method="post">
+      <input type="text" id = "search" placeholder = "Search">
       <button type="button" id = "button">Search</button>
     </form>
       <div class="employee">

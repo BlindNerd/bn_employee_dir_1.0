@@ -1,5 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+   // create global variables
+
 let firstLast;
 let empImage;
 let email;
@@ -36,7 +38,7 @@ function Contact (img, number, home, fullName, largeImg, mail, user, dob, town) 
 
 // hide overlay div
   $overlay.hide();
-
+  $('#search').hide();
 
 // create an ajax request and loop through all the info to get the info the page needs.
 
@@ -55,7 +57,7 @@ $.ajax({
       empImageSmall = employee[index].picture.medium;
       firstLast = employee[index].name.first+' '+employee[index].name.last;
       email = employee[index].email;
-      city = employee[index].location.city;
+      city = employee[index].location.city+' '+employee[index].nat;
       username = employee[index].login.username;
       phone = employee[index].cell;
       birthday = employee[index].dob;
@@ -72,7 +74,7 @@ $.ajax({
     for (let i = 0; i < employees.length; i++) {
       cardImage[i].src = employees[i].empImageLarge;
       name[i].textContent = employees[i].firstLast;
-      eMail[i].textContent = employees[i].email;
+      eMail[i].textContent = employees[i].username;
       domCity[i].textContent = employees[i].city;
    }  // end page loop
 
@@ -80,6 +82,7 @@ $.ajax({
 
 const overlayImage = document.getElementsByClassName('largeImage')[0];
 const overlayName = document.getElementById('bigName');
+const overlayUser = document.getElementById('bigUser');
 const overlayEmail = document.getElementById('bigEmail');
 const overlayCity = document.getElementById('bigCity');
 const overlayPhone = document.getElementById('phone');
@@ -98,11 +101,14 @@ const left = document.getElementById('left');
       $overlay.fadeIn('slow');
         overlayImage.src = employees[i].empImageLarge;
         overlayName.textContent = employees[i].firstLast;
+        overlayUser.textContent = employees[i].username;
         overlayEmail.textContent = employees[i].email;
-        overlayCity.textContent = employees[i].city;
         overlayPhone.textContent = employees[i].phone;
         overlayAddress.textContent = employees[i].fullAddress;
         overlayBirthday.textContent = employees[i].birthday;
+        $('.employee').hide();
+        $('#button').hide();
+        $('body').toggleClass('clickOverlay');
         return index;
  });// end click on employee div
 
@@ -119,7 +125,7 @@ right.addEventListener('click', (e) => {
     overlayImage.src = employees[index].empImageLarge;
     overlayName.textContent = employees[index].firstLast;
     overlayEmail.textContent = employees[index].email;
-    overlayCity.textContent = employees[index].city;
+    overlayUser.textContent = employees[index].username;
     overlayPhone.textContent = employees[index].phone;
     overlayAddress.textContent = employees[index].fullAddress;
     overlayBirthday.textContent = employees[index].birthday;
@@ -136,7 +142,7 @@ left.addEventListener('click', (e) => {
     overlayImage.src = employees[index].empImageLarge;
     overlayName.textContent = employees[index].firstLast;
     overlayEmail.textContent = employees[index].email;
-    overlayCity.textContent = employees[index].city;
+    overlayUser.textContent = employees[index].username;
     overlayPhone.textContent = employees[index].phone;
     overlayAddress.textContent = employees[index].fullAddress;
     overlayBirthday.textContent = employees[index].birthday;
@@ -147,29 +153,35 @@ left.addEventListener('click', (e) => {
  $('#close').click(function (event) {
    event.preventDefault();
    $overlay.fadeOut('slow');
+   $('.employee').fadeIn('slow');
+   $('body').toggleClass('clickOverlay');
+   $('#button').show('slow');
+   $('#search').hide();
 }); // end of close click
 
 // create a search function that search the page
 
 const searchButton = document.getElementById('button');
 const searchDiv = document.getElementById('searchDiv');
-const input = `<input type="text" id = "search" placeholder = "Search">`;
+const input = document.getElementById('search');
 
 searchButton.addEventListener('click', (e) => {
   e.preventDefault();
   $('#button').hide();
-  searchDiv.innerHTML = input;
+  $('#search').fadeIn('slow');
+  input.focus();
 });
 
    // add EventListener to the search field
 
-   $('#search').on('keyup', function() {
-     var g = $(this).val().toLowerCase();
-     $('.employees').each(function() {
-         var s = $(this).text().toLowerCase();
-         $(this).closest('.employees')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
-     });
- })
+   $("#search").on("keyup", function() {
+       let filter1 = $(this).val().toLowerCase();
+       $('.employee').each(function() {
+           let filter2 = $(this).text().toLowerCase();
+           $(this).closest('.employee')[ filter2.indexOf(filter1) !== -1 ? 'show' : 'hide' ]();
+       });
+   })
+
  console.log(employees);
 
 
