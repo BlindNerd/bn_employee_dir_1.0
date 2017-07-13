@@ -8,6 +8,11 @@
   display: hidden;
 }
 
+.clickOverlay {
+  background-color: rgba(4, 0, 2, 0.8);
+  z-index: 50;
+}
+
 
 /* General Classes */
 
@@ -19,14 +24,29 @@ h3 {
   margin-bottom: 3em;
   margin-top: 1em;
 }
-
+#button {
+  float: right;
+  margin-top: -5em;
+  margin-right: 5em;
+  height: 4em;
+  width: 10em;
+  border-radius: 5px;
+}
+#search {
+  float: right;
+  margin-top: -5em;
+  margin-right: 5em;
+  border-radius: 5px;
+  height: 3.5em;
+  font-size: .8em;
+}
 .employee {
   height: 15em;
   width: 32em;
   border: solid lightgrey .1em;
   border-radius: 10px;
   display: inline-block;
-  margin: 1.2em;
+  margin: .5em;
   clear: both;
 }
 
@@ -43,14 +63,33 @@ h3 {
   display: block;
   float: right;
   list-style-type: none;
-  margin-top: 10%;
-  margin-right: 15%;
+  margin-top: 5%;
+  margin-right: 10%;
 }
 
 .name {
   font-size: 1.5em;
   font-style: bold;
 }
+.name,
+.city,
+#address,
+#bigName,
+#bigCity{
+  text-transform: capitalize;
+}
+#bigName {
+  font-size: 1.3em;
+  }
+
+#exit {
+  margin-left: 90%;
+  }
+
+  a:link {
+    text-decoration: none;
+    color: black;
+  }
 
 .email,
 .city {
@@ -67,13 +106,14 @@ h3 {
   margin-left: 29%;
   box-shadow: 10px 10px 5px #888888;
   position: fixed;
+  clear: both;
 }
 
 .largeImage {
   width: 18.75em;
   height: 18.75em;
-  margin-left: 25%;
-  margin-top: 8%;
+  margin-left: 23%;
+  margin-top: 2%;
   margin-bottom: 4%;
   border-radius: 50%;
   border: black solid 1px;
@@ -86,6 +126,15 @@ h3 {
   border-bottom: dotted grey 1px;
 }
 
+#right {
+  float: right;
+}
+#left {
+  float: left;
+}
+
+
+
 #moreInfo {
   text-align: center;
   list-style-type: none;
@@ -96,4 +145,36 @@ h3 {
 #birthday {
   color: grey;
   margin: .7em;
+}
+
+
+/* eventlistener classes */
+
+.employee:hover {
+  border-color: black;
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari */
+  transform: scale(1.1)
+}
+
+#exit:hover {
+  -ms-transform: scale(1.3); /* IE 9 */
+  -webkit-transform: scale(1.3); /* Safari */
+  transform: scale(1.3)
+}
+
+#right:hover {
+  -ms-transform: scale(1.8); /* IE 9 */
+  -webkit-transform: scale(1.8); /* Safari */
+  transform: scale(1.8)
+}
+
+#left:hover {
+  -ms-transform: scale(1.8); /* IE 9 */
+  -webkit-transform: scale(1.8); /* Safari */
+  transform: scale(1.8)
+}
+#button:hover {
+  background-color: black;
+  color: white;
 }
